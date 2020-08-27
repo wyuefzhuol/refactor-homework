@@ -211,7 +211,7 @@ rankTest('Test13: given voyage zone china history length 6 has china when captai
   t.is(result, 0);
 });
 
-rankTest('Test14: given voyage zone east-indies history length 1 has china when captain history risk then return 5', t => {
+rankTest('Test14: given voyage zone east-indies history length 1 when captain history risk then return 5', t => {
   //given
   let voyage = {
     zone: 'east-indies',
@@ -227,4 +227,37 @@ rankTest('Test14: given voyage zone east-indies history length 1 has china when 
   let result = captainHistoryRisk(voyage, history);
   //then
   t.is(result, 5);
+});
+
+rankTest('Test15: given voyage zone east-indies history length 6 when captain history risk then return 1', t => {
+  //given
+  let voyage = {
+    zone: 'east-indies',
+    length: 9,
+  }
+  let history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'east-africa',
+      profit: 4,
+    },{
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'north-africa',
+      profit: 4,
+    },{
+      zone: 'china',
+      profit: 15,
+    }
+  ]
+  //when
+  let result = captainHistoryRisk(voyage, history);
+  //then
+  t.is(result, 1);
 });
