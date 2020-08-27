@@ -297,3 +297,21 @@ rankTest('Test17: given voyage zone china length 15 history length 1 not has chi
   //then
   t.is(result, 2);
 });
+
+rankTest('Test18: given voyage zone china length 11 history length 1 has china when voyage profit factor then return 6', t => {
+  //given
+  let voyage = {
+    zone: 'china',
+    length: 11,
+  }
+  let history = [
+    {
+      zone: 'china',
+      profit: 5,
+    }
+  ]
+  //when
+  let result = voyageProfitFactor(voyage, history);
+  //then
+  t.is(result, 6);
+});
