@@ -19,15 +19,8 @@ function captainHistoryRisk (voyage, history) {
 
 function calcResultWhenZoneIsChinaAndHasChina(result, history, voyage) {
   result += 3;
-  if (history.length > 10) {
-    result += 1;
-  }
-  if (voyage.length > 12) {
-    result += 1;
-  }
-  if (voyage.length > 18) {
-    result -= 1;
-  }
+  result += history.length > 10 ? 1 : 0;
+  result += voyage.length > 12 ? (voyage.length > 18 ? 0 : 1) : 0;
   return result;
 }
 
