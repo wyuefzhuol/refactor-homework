@@ -1,17 +1,7 @@
 function voyageRisk (voyage) {
   let result = 1;
-  if (voyage.length > 4) {
-    result += 2;
-  }
-  if (voyage.length > 8) {
-    result += voyage.length - 8;
-  }
-  if ([
-    'china',
-    'east-indies',
-  ].includes(voyage.zone)) {
-    result += 4;
-  }
+  result = voyage.length > 4 ? (voyage.length > 8 ? result + voyage.length - 6 : result + 2) : result;
+  result = [ 'china', 'east-indies' ].includes(voyage.zone) ? result + 4 : result
   return Math.max(result, 0);
 }
 
