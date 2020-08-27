@@ -32,18 +32,12 @@ function calcResultWhenZoneNotChinaOrNotHasChina(history, result, voyage) {
 
 function voyageProfitFactor (voyage, history) {
   let result = 2;
-  if (voyage.zone === 'china') {
-    result += 1;
-  }
-  if (voyage.zone === 'east-indies') {
-    result += 1;
-  }
-  if (voyage.zone === 'china' && hasChina(history)) {
-    result = calcResultWhenZoneIsChinaAndHasChina(result, history, voyage);
-  }
-  else {
-    result = calcResultWhenZoneNotChinaOrNotHasChina(history, result, voyage);
-  }
+  result = voyage.zone === 'china' ?
+    (hasChina(history) ? calcResultWhenZoneIsChinaAndHasChina(result, history, voyage) + 1 :
+      calcResultWhenZoneNotChinaOrNotHasChina(history, result, voyage) + 1)
+    :
+    (voyage.zone === 'east-indies' ? calcResultWhenZoneNotChinaOrNotHasChina(history, result, voyage) + 1 :
+      calcResultWhenZoneNotChinaOrNotHasChina(history, result, voyage))
   return result;
 }
 
