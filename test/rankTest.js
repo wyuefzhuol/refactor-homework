@@ -512,4 +512,76 @@ rankTest('test24: given voyage with china 19 history length 5 when rating return
   let result = rating(voyage, history);
   //then
   t.is('B', result);
-})
+});
+
+rankTest('test25: given voyage with china 12 and history length 5 when rating return A', t => {
+  //given
+  const voyage = {
+    zone: 'china',
+    length: 12,
+  };
+  const history = [
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },{
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },{
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    }
+  ];
+  //when
+  let result = rating(voyage, history);
+  //then
+  t.is('A', result);
+});
