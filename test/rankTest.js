@@ -60,3 +60,15 @@ rankTest('Test5: given voyage zone east-indies length 5 when voyage risk then re
   //then
   t.is(result, 7);
 });
+
+rankTest('Test5: given voyage zone west-africa length 5 when voyage risk then return 3', t => {
+  //given
+  let voyage = {
+    zone: 'west-africa',
+    length: 5,
+  }
+  //when
+  let result = voyageRisk(voyage);
+  //then
+  t.is(result, 3);
+});
