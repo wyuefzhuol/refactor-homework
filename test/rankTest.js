@@ -351,3 +351,51 @@ rankTest('Test20: given voyage zone china length 19 history length 1 has china w
   //then
   t.is(result, 6);
 });
+
+rankTest('Test21: given voyage zone china length 19 history length 11 has china when voyage profit factor then return 7', t => {
+  //given
+  let voyage = {
+    zone: 'china',
+    length: 19,
+  }
+  let history = [
+    {
+      zone: 'china',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'east-africa',
+      profit: 4,
+    },{
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'north-africa',
+      profit: 4,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'east-africa',
+      profit: 4,
+    },{
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'north-africa',
+      profit: 4,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    }
+  ]
+  //when
+  let result = voyageProfitFactor(voyage, history);
+  //then
+  t.is(result, 7);
+});
