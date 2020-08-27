@@ -75,6 +75,10 @@ function rating (voyage, history) {
 }
 
 module.exports = {
+  rating,
+  voyageRisk,
+  voyageProfitFactor,
+  captainHistoryRisk
 };
 
 const voyage = {
@@ -91,11 +95,10 @@ const history = [
   },{
     zone: 'china',
     profit: -2,
-  },
-  {
+  },{
     zone: 'west-africa',
     profit: 7,
-  },
+  }
 ];
 const myRating = rating(voyage, history);
 console.log(`myRating: ${myRating}`);
