@@ -447,3 +447,51 @@ rankTest('Test22: given voyage zone west-indies length 13 history length 11 when
   //then
   t.is(result, 3);
 });
+
+rankTest('Test23: given voyage zone west-indies length 15 history length 11 when voyage profit factor then return 2', t => {
+  //given
+  let voyage = {
+    zone: 'west-indies',
+    length: 15,
+  }
+  let history = [
+    {
+      zone: 'china',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'east-africa',
+      profit: 4,
+    },{
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'north-africa',
+      profit: 4,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'east-africa',
+      profit: 4,
+    },{
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'north-africa',
+      profit: 4,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    }
+  ]
+  //when
+  let result = voyageProfitFactor(voyage, history);
+  //then
+  t.is(result, 2);
+});
