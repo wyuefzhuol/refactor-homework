@@ -585,3 +585,65 @@ rankTest('test25: given voyage with china 12 and history length 5 when rating re
   //then
   t.is('A', result);
 });
+
+rankTest('test26: given voyage with china 12 and empty history cover the voyageProfitFactor when rating then return A', t => {
+  //given
+  const voyage = {
+    zone: 'east-indies',
+    length: 15,
+  };
+  const history = [
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    },
+    {
+      zone: 'china',
+      profit: 1,
+    }
+  ];
+  //when
+  let result = rating(voyage, history);
+  //then
+  t.is('B', result);
+})
