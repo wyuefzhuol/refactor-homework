@@ -126,3 +126,36 @@ rankTest('Test10: given voyage zone china history length 1 not has china when ca
   //then
   t.is(result, 5);
 });
+
+rankTest('Test11: given voyage zone china history length 6 not has china when captain history risk then return 1', t => {
+  //given
+  let voyage = {
+    zone: 'west-africa',
+    length: 9,
+  }
+  let history = [
+    {
+      zone: 'east-indies',
+      profit: 5,
+    },{
+      zone: 'west-indies',
+      profit: 15,
+    },{
+      zone: 'east-africa',
+      profit: 4,
+    },{
+      zone: 'west-africa',
+      profit: 7,
+    },{
+      zone: 'north-africa',
+      profit: 4,
+    },{
+      zone: 'north-indies',
+      profit: 15,
+    }
+  ]
+  //when
+  let result = captainHistoryRisk(voyage, history);
+  //then
+  t.is(result, 1);
+});
