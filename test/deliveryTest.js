@@ -16,3 +16,19 @@ deliveryTest('Test1: given is rush an order MA when delivery date then return 2'
   //then
   t.is(result, 2);
 });
+
+deliveryTest('Test2: given is rush an order NY when delivery date then return 3', t => {
+  //given
+  let isRush = true;
+  let anOrder = {
+    deliveryState: 'NY', placedOn: {
+      plusDays: (x) => {
+        return x
+      }
+    }
+  }
+  //when
+  const result = deliveryDate(anOrder, isRush);
+  //then
+  t.is(result, 3);
+});
