@@ -64,3 +64,19 @@ deliveryTest('Test4: given is not rush an order CT when delivery date then retur
   //then
   t.is(result, 4);
 });
+
+deliveryTest('Test5: given is not rush an order NH when delivery date then return 5', t => {
+  //given
+  let isRush = false;
+  let anOrder = {
+    deliveryState: 'NH', placedOn: {
+      plusDays: (x) => {
+        return x
+      }
+    }
+  }
+  //when
+  const result = deliveryDate(anOrder, isRush);
+  //then
+  t.is(result, 5);
+});
