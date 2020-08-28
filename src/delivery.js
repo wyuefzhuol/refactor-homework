@@ -2,13 +2,16 @@ function isInclude(deliveryStates, actualDeliveryState) {
   return deliveryStates.includes(actualDeliveryState);
 }
 
+//不太清除这些是什么状态，因此没有合适的命名
+const state1 = [
+  'MA',
+  'CT',
+];
+
 function deliveryDate (anOrder, isRush) {
   if (isRush) {
     let deliveryTime;
-    if (isInclude([
-      'MA',
-      'CT',
-    ], anOrder.deliveryState)) {
+    if (isInclude(state1, anOrder.deliveryState)) {
       deliveryTime = 1;
     }
     else if (isInclude([
